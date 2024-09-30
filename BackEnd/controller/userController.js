@@ -101,7 +101,6 @@ const updateUser = async (req, res) => {
                     if (err) {
                         reject(err);  
                     } else if (result.affectedRows === 0) {
-                        reject(new Error("User not found")); 
                         res.json({message: "User not found"})
                     } else {
                         resolve(result); 
