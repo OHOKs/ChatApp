@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request with EJS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>API kapcsolat EJS-ben (2 input mező, application/x-www-form-urlencoded)</h1>
+
+    <form id="apiForm">
+        <label for="firstName">Keresztnév:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        <br>
+        <label for="lastName">Vezetéknév:</label>
+        <input type="text" id="lastName" name="lastName" required>
+        <br>
+        <button type="submit">Küldés</button>
+    </form>
+
+    <div id="responseMessage"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#apiForm').on('submit', function(e) {
+                e.preventDefault(); // Megakadályozza az oldal újratöltését
+
+                const firstName = $('#firstName').val(); // Első mező (keresztnév) lekérése
+                const lastName = $('#lastName').val(); // Második mező (vezetéknév) lekérése
+
+                $.ajax({
+                    url: '/users/', // Az API végpont URL-je
+                    method: 'POST',
+                    contentType: 'application/x-www-form-urlencoded',
+                    data: { firstName: firstName, lastName: lastName }, // Az adatok URL-kódolt formában küldése
+                    success: function(response) {
+                        $('#responseMessage').text('Válasz az API-tól: ' + response.message);
+                    },
+                    error: function(err) {
+                        $('#responseMessage').text('Hiba történt: ' + err.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
