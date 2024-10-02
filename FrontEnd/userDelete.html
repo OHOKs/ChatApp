@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserDelete</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>User Delete</h1>
+
+    <form id="apiForm">
+        <label for="iou">Id of User:</label>
+        <input type="text" id="iou" name="iou" required>
+        <br>
+        <button type="submit">Küldés</button>
+    </form>
+
+    <div id="responseMessage"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#apiForm').on('submit', function(e) {
+                e.preventDefault(); 
+ 
+                const id = $('#iou').val();
+
+
+                $.ajax({
+                    url: 'http://localhost:3000/user/'+ id +'', 
+                    method: 'DELETE',
+                    contentType: 'application/x-www-form-urlencoded',
+                    data: {  },
+                    success: function(response) {
+                        alert(response.message);
+                    },
+                    error: function(err) {
+                        alert(err.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

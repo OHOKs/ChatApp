@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MessageUpdate</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Message Update</h1>
+
+    <form id="apiForm">
+        <label for="content">Content:</label>
+        <input type="text" id="content" name="content" required>
+        <br>
+        <label for="iom">Id of Message:</label>
+        <input type="text" id="iom" name="iom" required>
+        <br>
+        <button type="submit">Send</button>
+    </form>
+
+    <div id="responseMessage"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#apiForm').on('submit', function(e) {
+                e.preventDefault(); 
+
+                const content = $('#content').val(); 
+                const id = $('#iom').val();
+
+
+                $.ajax({
+                    url: 'http://localhost:3000/chat/'+ id +'', 
+                    method: 'PUT',
+                    contentType: 'application/x-www-form-urlencoded',
+                    data: { content: content },
+                    success: function(response) {
+                        alert(response.message);
+                    },
+                    error: function(err) {
+                        alert(err.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

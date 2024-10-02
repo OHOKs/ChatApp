@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MessageGetAll</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Message Get All</h1>
+
+    <br>
+    <button type="button" onclick="clearTable()">Clear Table</button>
+    <button type="button" onclick="loadData(data)">Load Table</button>
+    <br>
+
+    <table id="messagesTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Content</th>
+                <th>CreatedAt</th>
+                <th>SenderId</th>
+                <th>ToId</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        let data;
+
+        function GetMessages() {
+            data = {}
+
+            $.ajax({
+                url: 'http://localhost:3000/chat/', 
+                method: 'GET',
+                contentType: 'application/x-www-form-urlencoded',
+                data: { },
+                success: function(response) {
+                    data = response;
+                },
+                error: function(err) {
+                    alert(err.responseText);
+                }
+            });
+        };
+
+        function clearTable() {
+            const tbody = document.querySelector("#messagesTable tbody");
+            tbody.innerHTML = ''; 
+        }
+
+        function loadData(data) {
+            GetMessages();
+
+            clearTable()
+
+            const tbody = document.querySelector("#messagesTable tbody");
+            data.forEach(message => {
+                const row = document.createElement("tr");
+
+                Object.keys(message).forEach(key => {
+                    const cell = document.createElement("td");
+                    cell.textContent = message[key];
+                    row.appendChild(cell);
+                });
+
+                tbody.appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>

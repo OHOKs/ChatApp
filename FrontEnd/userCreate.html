@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserCreate</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>User Create</h1>
+
+    <form id="apiForm">
+        <label for="name">Username:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+        <br>
+        <label for="bdate">Birth Date:</label>
+        <input type="date" id="bdate" name="bdate" required>
+        <br>
+        <button type="submit">Küldés</button>
+    </form>
+
+    <div id="responseMessage"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#apiForm').on('submit', function(e) {
+                e.preventDefault(); 
+
+                const name = $('#name').val(); 
+                const password = $('#password').val();
+                const email = $('#email').val();
+                const bdate = $('#bdate').val();
+
+
+                $.ajax({
+                    url: 'http://localhost:3000/user/', 
+                    method: 'POST',
+                    contentType: 'application/x-www-form-urlencoded',
+                    data: { username: name, password: password, email: email, birth_date: bdate },
+                    success: function(response) {
+                        alert(response.message);
+                    },
+                    error: function(err) {
+                        alert(err.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

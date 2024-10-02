@@ -40,7 +40,7 @@ const createUser = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     const email = req.body.email;
-    const birth_date = "2005-06-25 12:00:00.000"
+    const birth_date = req.body.birth_date;
     const created_at = currentTime();
 
     try{

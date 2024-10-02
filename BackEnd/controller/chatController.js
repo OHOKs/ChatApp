@@ -79,12 +79,13 @@ const updateMessage = async (req, res) => {
 
     const id = req.params.id;
     const content = req.body.content;
+    const created_at = currentTime();
 
     try{
         if (!content) { return res.status(400).json({ error: "Content is required" }); }
 
         await new Promise((resolve, reject) => {
-            con.query("UPDATE `chat` SET `content` = ? WHERE `id` = ?", [content, id],(err, result) => {
+            con.query("UPDATE `chat` SET `content` = ?, `created_at` = ? WHERE `id` = ?", [content, created_at, id],(err, result) => {
                     if (err) {
                         reject(err);  
                     } else if (result.affectedRows === 0) {

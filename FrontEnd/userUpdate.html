@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserUpdate</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>User Update</h1>
+
+    <form id="apiForm">
+        <label for="name">Username:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="iou">Id of User:</label>
+        <input type="text" id="iou" name="iou" required>
+        <br>
+        <button type="submit">Küldés</button>
+    </form>
+
+    <div id="responseMessage"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#apiForm').on('submit', function(e) {
+                e.preventDefault(); 
+
+                const name = $('#name').val(); 
+                const id = $('#iou').val();
+
+
+                $.ajax({
+                    url: 'http://localhost:3000/user/'+ id +'', 
+                    method: 'PUT',
+                    contentType: 'application/x-www-form-urlencoded',
+                    data: { username: name },
+                    success: function(response) {
+                        alert(response.message);
+                    },
+                    error: function(err) {
+                        alert(err.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

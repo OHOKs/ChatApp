@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MessageCreate</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Message Create</h1>
+
+    <label for="userDropdown1">Sender:</label>
+    <select id="userDropdown1">
+        <option value="">Select a User</option>
+    </select>
+
+    <br>
+
+    <label for="userDropdown2">Reciever:</label>
+    <select id="userDropdown2">
+        <option value="">Select a User</option>
+    </select>
+    <br>
+    <label for="Content">Content:</label>
+    <input type="text" id="Content" name="Content" required>
+    <br>
+
+    <button type="button" onclick="Send()">Send</button>
+
+    <div id="responseMessage"></div>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: 'http://localhost:3000/user/', 
+                method: 'GET',
+                contentType: 'application/x-www-form-urlencoded',
+                data: {},
+                success: function(response) {
+                    const data = response; 
+                    populateDropdowns(data); 
+                },
+                error: function(err) {
+                    alert(err.responseText);
+                }
+            });
+
+            $('#userDropdown1').on('change', function() {
+                const selectedValue = $(this).val();
+                updateDropdowns(selectedValue);
+            });
+
+            
+            $('#userDropdown2').on('change', function() {
+                const selectedValue = $(this).val();
+                updateDropdowns(selectedValue);
+            });
+        });
+
+        function populateDropdowns(data) {
+            const dropdown1 = $('#userDropdown1');
+            const dropdown2 = $('#userDropdown2');
+
+            data.forEach(user => {
+                const option1 = $('<option></option>')
+                    .attr('value', user.id)
+                    .text(`${user.id} - ${user.username}`);
+                dropdown1.append(option1);
+            });
+
+            data.forEach(user => {
+                const option2 = $('<option></option>')
+                    .attr('value', user.id)
+                    .text(`${user.id} - ${user.username}`);
+                dropdown2.append(option2);
+            });
+        }
+
+        function updateDropdowns(selectedValue) {
+            const dropdown2 = $('#userDropdown2');
+            dropdown2.find('option').show(); 
+
+            dropdown2.find('option').each(function() {
+                if ($(this).val() === selectedValue) {
+                    $(this).hide(); 
+                }
+            });
+        }
+
+        function Send(){
+            const content = $('#Content').val(); 
+            const sender = $('#userDropdown1').val(); 
+            const reciever = $('#userDropdown2').val(); 
+
+            $.ajax({
+                url: 'http://localhost:3000/chat/', 
+                method: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                data: { content: content, to_id: reciever, sender_id: sender },
+                success: function(response) {
+                    alert(response.message);
+                },
+                error: function(err) {
+                    alert(err.responseText);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
