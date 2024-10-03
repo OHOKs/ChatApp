@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Okt 02. 10:12
--- Kiszolgáló verziója: 10.4.28-MariaDB
--- PHP verzió: 8.2.4
+-- Létrehozás ideje: 2024. Okt 03. 20:17
+-- Kiszolgáló verziója: 10.4.27-MariaDB
+-- PHP verzió: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,8 +42,7 @@ CREATE TABLE `chat` (
 INSERT INTO `chat` (`id`, `content`, `created_at`, `sender_id`, `to_id`) VALUES
 (4, 'Gere vasgyok xd', '2024-09-30 12:40:05.000', 25, 1),
 (5, 'Janikavagyok', '2024-09-30 12:56:39.000', 1, 25),
-(7, 'Janikavagyokawdawd', '2024-09-30 13:33:31.000', 1, 25),
-(12, 'adasd', '2024-10-02 10:10:17.000', 53, 3);
+(7, 'Janikavagyokawdawd', '2024-09-30 13:33:31.000', 1, 25);
 
 -- --------------------------------------------------------
 
@@ -67,28 +66,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `birth_date`, `created_at`, `updated_at`) VALUES
 (1, 'Valid', 'kacsarandom', 'janipatrik138@gmail.com', '2024-09-11 12:11:35.000', '2024-09-26 12:11:35.000', '2024-09-30 12:11:35.000'),
-(3, 'ag', 'ssgsg', 'drhdrh', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '2024-09-20 12:42:22.000'),
-(5, 'asd', 'adawga', 'sehsehs', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '2024-09-20 12:42:22.000'),
-(7, 'undefined', 'undefined', 'undefined', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '2024-09-20 12:42:22.000'),
-(24, ' aawga', ' kacsarasgsegndom', ' janipatrik138@gmail.com', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '2024-09-20 12:42:22.000'),
 (25, 'Gere Csanád', 'buika', 'gerecsanika@gmail.com', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '2024-09-20 12:42:22.000'),
-(27, 'Gere Csanádawdwa', 'buikaawdaw', 'awdawd@gmail.com', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '2024-09-20 12:42:22.000'),
-(28, 'Gere Csanádawdwaawdawdawdaawd', 'buikaawdawawdawddawdawd', 'awdawd@gmail.comawdawdawdawdawd', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '2024-09-20 12:42:22.000'),
-(29, 'Gere Csanádawdwaawdawdawdaawdwd', 'buikaawdawawdawddawdawdawd', 'awdawd@gmail.comawdawdawdawdawdawdad', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '2024-09-20 12:42:22.000'),
-(30, 'Gere sgs', 'seg', 'awdawd@segseg.comawdawdawdawdawdawdadsg', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '2024-09-20 12:42:22.000'),
-(31, 'Gere sgswdad', 'segawdawdawd', 'awdawd@segseg.comawdawdawdawdawdawdadsgawda', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '2024-09-20 12:42:22.000'),
-(34, 'kakadawd', 'naulgnawgagag', 'anlafn@aanowldsegsg', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '0000-00-00 00:00:00.000'),
-(36, 'Validadawdad', 'japsjaoeg ', 'anljwbnaflv@amiwpfna', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '0000-00-00 00:00:00.000'),
-(37, 'Validadawdadawda', 'japsjaoeg awd', 'anljwbnaflv@amiwpfnaawd', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '2024-09-30 09:51:01.000'),
-(38, 'Validadawdadawdaawdawd', 'japsjaoeg awdawdawdwd', 'anljwbnaflv@amiwpfnaawdadawdwd', '2024-09-06 12:42:22.000', '2024-09-12 12:42:22.000', '0000-00-00 00:00:00.000'),
-(40, 'alma', 'japsjaoeg awdawdawdwdad', 'anljwbnaflv@amiwpfnaawdadawdwdawd', '2024-09-06 12:42:22.000', '2024-09-30 12:03:05.000', '2024-09-30 12:14:20.000'),
-(41, 'Validadawdadawdaawdawdawyscc', 'japsjaoeg awdawdawdwdadysc', 'anljwbnaflv@amiwpfnaawdadawdwdawdysc', '2005-06-25 12:00:00.000', '2024-09-30 12:11:05.000', '2024-09-30 12:11:05.000'),
-(42, 'Gere vasgyok ', ' anguoééasbneghls', 'abiugbésoegnéiosgnipsgnjái@', '2005-06-25 12:00:00.000', '2024-09-30 12:49:03.000', '2024-09-30 12:49:03.000'),
-(43, 'valikaaa', 'almavagyok2005', 'janipatrik@gmail.com', '2005-06-25 12:00:00.000', '2024-09-30 13:02:54.000', '2024-09-30 13:03:13.000'),
-(47, 'Jani Patrik Gereaaadad', 'ezajelszoawda', 'gerecsanad@gmail.comaawdad', '2005-06-25 12:00:00.000', '2024-09-30 13:46:43.000', '2024-09-30 13:46:43.000'),
-(48, 'aadwd', 'awdaw', 'awdad', '2005-06-25 12:00:00.000', '2024-10-02 08:45:20.000', '2024-10-02 08:45:20.000'),
-(51, 'Szarocska', 'kakacskaa', 'druksguoéhgáilasebgsligji', '2024-09-04 00:00:00.000', '2024-10-02 09:25:55.000', '2024-10-02 09:25:55.000'),
-(53, 'Gere csanadsdd', 'fikavagylolxd', 'halottapad@gmail.com', '2024-01-03 00:00:00.000', '2024-10-02 10:10:02.000', '2024-10-02 10:10:02.000');
+(55, 'asd', 'das', 'asd', '2024-10-02 00:00:00.000', '2024-10-03 20:06:55.000', '2024-10-03 20:06:55.000');
 
 -- --------------------------------------------------------
 
@@ -148,13 +127,13 @@ ALTER TABLE `_prisma_migrations`
 -- AUTO_INCREMENT a táblához `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- Megkötések a kiírt táblákhoz
