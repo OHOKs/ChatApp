@@ -1,3 +1,4 @@
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -6,32 +7,43 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f5f5f5; /* Világos háttér */
+    background-color: antiquewhite;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
 }
+
 .container {
     display: grid;
     grid-template-columns: repeat(4, 150px);
     grid-template-rows: repeat(2, 100px);
     gap: 20px;
+   
 }
 .box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    text-decoration: none;
-    color: #333; /* Sötétszürke szöveg */
-    background-color: #fff; /* Fehér doboz */
-    border: 1px solid #e0e0e0; /* Világosszürke keret */
-    border-radius: 8px; /* Lekerekített sarkak */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  background-color: #090809;
+  color: white;
+  padding: 20px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
+
 .box:hover {
-    background-color: #fafafa; /* Még világosabb háttér a hover-nél */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Finom árnyék hover-re */
+  background-color: #454545;
+  transform: translateY(-5px);
 }
 h1 {
     position: absolute;
     margin-top: -400px;
+    font-size: 70px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
     
 }
