@@ -10,16 +10,20 @@
 <body>
     <h1>Message Create</h1>
 
-    <label for="userDropdown1">Sender:</label>
+    <div class="card">
+        
+        <label for="userDropdown1">Sender:</label>
     <select id="userDropdown1">
-        <option value="">Select a User</option>
+        <button class="dropbtn"><option value="" id="dropdown">Select a User</option></button>
     </select>
 
     <br>
 
     <label for="userDropdown2">Reciever:</label>
     <select id="userDropdown2">
-        <option value="">Select a User</option>
+        <div class="centerButton">
+        <option value="" id="dropdown">Select a User</option>
+        </div>
     </select>
     <br>
     <label for="Content">Content:</label>
@@ -30,6 +34,8 @@
 
     <div id="responseMessage"></div>
 
+    </div>
+    
     <script>
         $(document).ready(function() {
             $.ajax({

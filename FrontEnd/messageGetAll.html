@@ -5,22 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MessageGetAll</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="style1.css">
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="table.css">
 </head>
 <body>
     <h1>Message Get All</h1>
-
-    <br>
-    <button type="button" onclick="clearTable()">Clear Table</button>
-    <button type="button" onclick="loadData(data)">Load Table</button>
-    <br>
+    <div class="table"> 
+        <div class="buttons">
+            <button type="button" onclick="clearTable()">Clear Table</button>
+            <button type="button" onclick="loadData(data)">Load Table</button>    
+        </div>
 
     <table id="messagesTable">
         <thead>
@@ -37,6 +30,8 @@
         </tbody>
     </table>
 
+    </div>
+    
     <script>
         let data;
 

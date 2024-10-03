@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: antiquewhite;
+    background-color: black;
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
@@ -27,23 +27,23 @@ body {
   padding: 20px;
   text-decoration: none;
   font-size: 18px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, background-color 0.3s ease;
+  border-radius: 25px;
+  background-image: linear-gradient(to top, #000000, #8854e7b7);
+  transition: 0.4s ;
+  box-shadow: 0 8px 10px 2px #5d4970;
 }
 
 .box:hover {
-  background-color: #454545;
+  background-image: linear-gradient(to top, #d39000, #850bff);
   transform: translateY(-5px);
 }
 h1 {
-    position: absolute;
-    margin-top: -400px;
-    font-size: 70px;
+  position: absolute;
+  margin-top: -550px;
+  font-size: 70px;
   font-weight: 600;
   background-image: linear-gradient(to left, #553c9a, #b393d3);
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-    
 }

@@ -5,39 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UserGetAll</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="style1.css">
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="table.css">
 </head>
 <body>
     <h1>User Get All</h1>
+    <div class="table"> 
+        <div class="buttons">
+            <button type="button" onclick="clearTable()">Clear Table</button>
+            <button type="button" onclick="loadData(data)">Load Table</button>    
+        </div>
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>Birthdate</th>
+                    <th>CreatedAt</th>
+                    <th>UpdatedAt</th>
+                </tr>
+            </thead>
+            <tbody>
 
-    <button type="button" onclick="clearTable()">Clear Table</button>
-    <button type="button" onclick="loadData(data)">Load Table</button>
+            </tbody>
+        </table>
 
-    <table id="userTable">
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Email</th>
-                <th>Birthdate</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-            </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
-    </table>
-
-    <div id="responseMessage"></div>
-
+        <div id="responseMessage"></div>
+    </div>
     <script>
         let data;
 
